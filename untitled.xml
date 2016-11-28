@@ -1,0 +1,3839 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE trakem2_anything [
+	<!ELEMENT trakem2 (project,t2_layer_set,t2_display)>
+	<!ELEMENT project (anything)>
+	<!ATTLIST project id NMTOKEN #REQUIRED>
+	<!ATTLIST project unuid NMTOKEN #REQUIRED>
+	<!ATTLIST project title NMTOKEN #REQUIRED>
+	<!ATTLIST project preprocessor NMTOKEN #REQUIRED>
+	<!ATTLIST project mipmaps_folder NMTOKEN #REQUIRED>
+	<!ATTLIST project storage_folder NMTOKEN #REQUIRED>
+	<!ELEMENT anything (pipe)>
+	<!ATTLIST anything id NMTOKEN #REQUIRED>
+	<!ATTLIST anything expanded NMTOKEN #REQUIRED>
+	<!ELEMENT pipe EMPTY>
+	<!ATTLIST pipe id NMTOKEN #REQUIRED>
+	<!ATTLIST pipe oid NMTOKEN #REQUIRED>
+	<!ATTLIST pipe expanded NMTOKEN #REQUIRED>
+	<!ELEMENT t2_layer (t2_patch,t2_label,t2_layer_set,t2_profile)>
+	<!ATTLIST t2_layer oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer thickness NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer z NMTOKEN #REQUIRED>
+	<!ELEMENT t2_layer_set (t2_prop,t2_linked_prop,t2_annot,t2_layer,t2_pipe,t2_ball,t2_area_list,t2_calibration,t2_stack,t2_treeline)>
+	<!ATTLIST t2_layer_set oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_z NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set snapshots_quality NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set color_cues NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set area_color_cues NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set avoid_color_cue_colors NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set n_layers_color_cue NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set paint_arrows NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set paint_tags NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set paint_edge_confidence_boxes NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set preload_ahead NMTOKEN #REQUIRED>
+	<!ELEMENT t2_calibration EMPTY>
+	<!ATTLIST t2_calibration pixelWidth NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration pixelHeight NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration pixelDepth NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration xOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration yOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration zOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration info NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration valueUnit NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration timeUnit NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration unit NMTOKEN #REQUIRED>
+	<!ELEMENT t2_ball (t2_prop,t2_linked_prop,t2_annot,t2_ball_ob)>
+	<!ATTLIST t2_ball oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball fill NMTOKEN #REQUIRED>
+	<!ELEMENT t2_ball_ob EMPTY>
+	<!ATTLIST t2_ball_ob x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob r NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob layer_id NMTOKEN #REQUIRED>
+	<!ELEMENT t2_label (t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_label oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label composite NMTOKEN #REQUIRED>
+	<!ELEMENT t2_filter EMPTY>
+	<!ELEMENT t2_patch (t2_prop,t2_linked_prop,t2_annot,ict_transform,ict_transform_list,t2_filter)>
+	<!ATTLIST t2_patch oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch file_path NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch original_path NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch type NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch false_color NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch ct NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch o_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch o_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch min NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch max NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch o_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch o_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch pps NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch mres NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch ct_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch alpha_mask_id NMTOKEN #REQUIRED>
+	<!ELEMENT t2_pipe (t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_pipe oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe d NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe p_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe layer_ids NMTOKEN #REQUIRED>
+	<!ELEMENT t2_polyline (t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_polyline oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_polyline d NMTOKEN #REQUIRED>
+	<!ELEMENT t2_profile (t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_profile oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile d NMTOKEN #REQUIRED>
+	<!ELEMENT t2_area_list (t2_prop,t2_linked_prop,t2_annot,t2_area)>
+	<!ATTLIST t2_area_list oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list fill_paint NMTOKEN #REQUIRED>
+	<!ELEMENT t2_area (t2_path)>
+	<!ATTLIST t2_area layer_id NMTOKEN #REQUIRED>
+	<!ELEMENT t2_path EMPTY>
+	<!ATTLIST t2_path d NMTOKEN #REQUIRED>
+	<!ELEMENT t2_dissector (t2_prop,t2_linked_prop,t2_annot,t2_dd_item)>
+	<!ATTLIST t2_dissector oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector composite NMTOKEN #REQUIRED>
+	<!ELEMENT t2_dd_item EMPTY>
+	<!ATTLIST t2_dd_item radius NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dd_item tag NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dd_item points NMTOKEN #REQUIRED>
+	<!ELEMENT t2_stack (t2_prop,t2_linked_prop,t2_annot,(iict_transform|iict_transform_list)?)>
+	<!ATTLIST t2_stack oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack composite NMTOKEN #REQUIRED>
+	<!ATTLIST t2_stack file_path CDATA #REQUIRED>
+	<!ATTLIST t2_stack depth CDATA #REQUIRED>
+	<!ELEMENT t2_tag EMPTY>
+	<!ATTLIST t2_tag name NMTOKEN #REQUIRED>
+	<!ATTLIST t2_tag key NMTOKEN #REQUIRED>
+	<!ELEMENT t2_node (t2_area*,t2_tag*)>
+	<!ATTLIST t2_node x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_node y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_node lid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_node c NMTOKEN #REQUIRED>
+	<!ATTLIST t2_node r NMTOKEN #IMPLIED>
+	<!ELEMENT t2_treeline (t2_node*,t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_treeline oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_treeline composite NMTOKEN #REQUIRED>
+	<!ELEMENT t2_areatree (t2_node*,t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_areatree oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_areatree composite NMTOKEN #REQUIRED>
+	<!ELEMENT t2_connector (t2_node*,t2_prop,t2_linked_prop,t2_annot)>
+	<!ATTLIST t2_connector oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_connector composite NMTOKEN #REQUIRED>
+	<!ELEMENT t2_prop EMPTY>
+	<!ATTLIST t2_prop key NMTOKEN #REQUIRED>
+	<!ATTLIST t2_prop value NMTOKEN #REQUIRED>
+	<!ELEMENT t2_linked_prop EMPTY>
+	<!ATTLIST t2_linked_prop target_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_linked_prop key NMTOKEN #REQUIRED>
+	<!ATTLIST t2_linked_prop value NMTOKEN #REQUIRED>
+	<!ELEMENT t2_annot EMPTY>
+	<!ELEMENT t2_display EMPTY>
+	<!ATTLIST t2_display id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display magnification NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display scroll_step NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display c_alphas NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display c_alphas_state NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_enabled NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_min_max_enabled NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_min NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_max NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_invert NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_clahe_enabled NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_clahe_block_size NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_clahe_histogram_bins NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display filter_clahe_max_slope NMTOKEN #REQUIRED>
+	<!ELEMENT ict_transform EMPTY>
+	<!ATTLIST ict_transform class CDATA #REQUIRED>
+	<!ATTLIST ict_transform data CDATA #REQUIRED>
+	<!ELEMENT iict_transform EMPTY>
+	<!ATTLIST iict_transform class CDATA #REQUIRED>
+	<!ATTLIST iict_transform data CDATA #REQUIRED>
+	<!ELEMENT ict_transform_list (ict_transform|iict_transform)*>
+	<!ELEMENT iict_transform_list (iict_transform*)>
+] >
+
+<trakem2>
+	<project 
+		id="0"
+		title="untitled.xml"
+		unuid="1473088232794.1641762737.958893250"
+		mipmaps_folder="trakem2.1473088232794.1641762737.958893250/trakem2.mipmaps/"
+		storage_folder=""
+		mipmaps_format="4"
+		image_resizing_mode="Area downsampling"
+	>
+		<anything id="460" expanded="true">
+			<pipe id="462" oid="461"/>
+			<pipe id="464" oid="463"/>
+		</anything>
+	</project>
+	<t2_layer_set
+		oid="3"
+		width="20.0"
+		height="20.0"
+		transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+		title="Top Level"
+		links=""
+		layer_width="438.0"
+		layer_height="404.0"
+		rot_x="0.0"
+		rot_y="0.0"
+		rot_z="0.0"
+		snapshots_quality="true"
+		snapshots_mode="Full"
+		color_cues="true"
+		area_color_cues="true"
+		avoid_color_cue_colors="false"
+		n_layers_color_cue="0"
+		paint_arrows="true"
+		paint_tags="true"
+		paint_edge_confidence_boxes="true"
+		prepaint="false"
+		preload_ahead="0"
+	>
+		<t2_calibration
+			pixelWidth="1.0"
+			pixelHeight="1.0"
+			pixelDepth="1.0"
+			xOrigin="0.0"
+			yOrigin="0.0"
+			zOrigin="0.0"
+			info="null"
+			valueUnit="Gray Value"
+			timeUnit="sec"
+			unit="pixel"
+		/>
+		<t2_pipe
+			oid="461"
+			width="130.0"
+			height="204.0"
+			transform="matrix(1.0,0.0,0.0,1.0,120.0,106.0)"
+			title="pipe"
+			links=""
+			layer_set_id="3"
+			style="fill:none;stroke-opacity:1.0;stroke:#ffff00;stroke-width:1.0px;stroke-opacity:1.0"
+			d="M 3.0,10.0 C 3.0,10.0 60.0,28.0 60.0,28.0 C 60.0,28.0 103.0,94.0 103.0,94.0 C 103.0,94.0 119.0,203.0 119.0,203.0"
+			layer_ids="300,273,222,168"
+			p_width="11.342202246984467,11.342202246984467,11.342202246984467,11.342202246984467"
+		>
+		</t2_pipe>
+		<t2_pipe
+			oid="463"
+			width="351.0"
+			height="249.0"
+			transform="matrix(1.0,0.0,0.0,1.0,69.0,138.9999999999999)"
+			title="pipe"
+			links=""
+			layer_set_id="3"
+			style="fill:none;stroke-opacity:1.0;stroke:#ffff00;stroke-width:1.0px;stroke-opacity:1.0"
+			d="M 11.0,3.000000000000057 C 11.0,3.000000000000057 31.0,116.0 115.0,70.00000000000006 C 197.0,24.000000000000107 195.0,104.0 219.0,177.0 C 243.0,249.0 276.0,206.0 284.0,203.0 C 290.0,200.0 325.0,160.0 298.0,192.0 C 271.0,225.0 259.0,58.0 305.0,137.0"
+			layer_ids="225,225,207,204,189,189"
+			p_width="11.342202246984467,11.342202246984467,11.342202246984467,11.342202246984467,11.342202246984467,11.342202246984467"
+		>
+		</t2_pipe>
+		<t2_layer oid="5"
+			 thickness="1.0"
+			 z="0.0"
+			 title=""
+		>
+			<t2_patch
+				oid="8"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:150 RGB_kept_stack 1"
+				links="11"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=1"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="9"
+			 thickness="1.0"
+			 z="1.0"
+			 title=""
+		>
+			<t2_patch
+				oid="11"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:151 RGB_kept_stack 2"
+				links="8,14"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=2"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="12"
+			 thickness="1.0"
+			 z="2.0"
+			 title=""
+		>
+			<t2_patch
+				oid="14"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:152 RGB_kept_stack 3"
+				links="11,17"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=3"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="15"
+			 thickness="1.0"
+			 z="3.0"
+			 title=""
+		>
+			<t2_patch
+				oid="17"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:153 RGB_kept_stack 4"
+				links="14,20"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=4"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="18"
+			 thickness="1.0"
+			 z="4.0"
+			 title=""
+		>
+			<t2_patch
+				oid="20"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:154 RGB_kept_stack 5"
+				links="17,23"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=5"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="21"
+			 thickness="1.0"
+			 z="5.0"
+			 title=""
+		>
+			<t2_patch
+				oid="23"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:155 RGB_kept_stack 6"
+				links="20,26"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=6"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="24"
+			 thickness="1.0"
+			 z="6.0"
+			 title=""
+		>
+			<t2_patch
+				oid="26"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:156 RGB_kept_stack 7"
+				links="23,29"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=7"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="27"
+			 thickness="1.0"
+			 z="7.0"
+			 title=""
+		>
+			<t2_patch
+				oid="29"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:157 RGB_kept_stack 8"
+				links="26,32"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=8"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="30"
+			 thickness="1.0"
+			 z="8.0"
+			 title=""
+		>
+			<t2_patch
+				oid="32"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:158 RGB_kept_stack 9"
+				links="29,35"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=9"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="33"
+			 thickness="1.0"
+			 z="9.0"
+			 title=""
+		>
+			<t2_patch
+				oid="35"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:159 RGB_kept_stack 10"
+				links="32,38"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=10"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="36"
+			 thickness="1.0"
+			 z="10.0"
+			 title=""
+		>
+			<t2_patch
+				oid="38"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:160 RGB_kept_stack 11"
+				links="35,41"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=11"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="39"
+			 thickness="1.0"
+			 z="11.0"
+			 title=""
+		>
+			<t2_patch
+				oid="41"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:161 RGB_kept_stack 12"
+				links="38,44"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=12"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="42"
+			 thickness="1.0"
+			 z="12.0"
+			 title=""
+		>
+			<t2_patch
+				oid="44"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:162 RGB_kept_stack 13"
+				links="41,47"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=13"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="45"
+			 thickness="1.0"
+			 z="13.0"
+			 title=""
+		>
+			<t2_patch
+				oid="47"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:163 RGB_kept_stack 14"
+				links="44,50"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=14"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="48"
+			 thickness="1.0"
+			 z="14.0"
+			 title=""
+		>
+			<t2_patch
+				oid="50"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:164 RGB_kept_stack 15"
+				links="47,53"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=15"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="51"
+			 thickness="1.0"
+			 z="15.0"
+			 title=""
+		>
+			<t2_patch
+				oid="53"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:165 RGB_kept_stack 16"
+				links="50,56"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=16"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="54"
+			 thickness="1.0"
+			 z="16.0"
+			 title=""
+		>
+			<t2_patch
+				oid="56"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:166 RGB_kept_stack 17"
+				links="53,59"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=17"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="57"
+			 thickness="1.0"
+			 z="17.0"
+			 title=""
+		>
+			<t2_patch
+				oid="59"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:167 RGB_kept_stack 18"
+				links="56,62"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=18"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="60"
+			 thickness="1.0"
+			 z="18.0"
+			 title=""
+		>
+			<t2_patch
+				oid="62"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:168 RGB_kept_stack 19"
+				links="59,65"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=19"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="63"
+			 thickness="1.0"
+			 z="19.0"
+			 title=""
+		>
+			<t2_patch
+				oid="65"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:169 RGB_kept_stack 20"
+				links="62,68"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=20"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="66"
+			 thickness="1.0"
+			 z="20.0"
+			 title=""
+		>
+			<t2_patch
+				oid="68"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:170 RGB_kept_stack 21"
+				links="65,71"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=21"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="69"
+			 thickness="1.0"
+			 z="21.0"
+			 title=""
+		>
+			<t2_patch
+				oid="71"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:171 RGB_kept_stack 22"
+				links="68,74"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=22"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="72"
+			 thickness="1.0"
+			 z="22.0"
+			 title=""
+		>
+			<t2_patch
+				oid="74"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:172 RGB_kept_stack 23"
+				links="71,77"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=23"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="75"
+			 thickness="1.0"
+			 z="23.0"
+			 title=""
+		>
+			<t2_patch
+				oid="77"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:173 RGB_kept_stack 24"
+				links="74,80"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=24"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="78"
+			 thickness="1.0"
+			 z="24.0"
+			 title=""
+		>
+			<t2_patch
+				oid="80"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:174 RGB_kept_stack 25"
+				links="77,83"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=25"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="81"
+			 thickness="1.0"
+			 z="25.0"
+			 title=""
+		>
+			<t2_patch
+				oid="83"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:175 RGB_kept_stack 26"
+				links="80,86"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=26"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="84"
+			 thickness="1.0"
+			 z="26.0"
+			 title=""
+		>
+			<t2_patch
+				oid="86"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:176 RGB_kept_stack 27"
+				links="83,89"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=27"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="87"
+			 thickness="1.0"
+			 z="27.0"
+			 title=""
+		>
+			<t2_patch
+				oid="89"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:177 RGB_kept_stack 28"
+				links="86,92"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=28"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="90"
+			 thickness="1.0"
+			 z="28.0"
+			 title=""
+		>
+			<t2_patch
+				oid="92"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:178 RGB_kept_stack 29"
+				links="89,95"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=29"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="93"
+			 thickness="1.0"
+			 z="29.0"
+			 title=""
+		>
+			<t2_patch
+				oid="95"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:179 RGB_kept_stack 30"
+				links="92,98"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=30"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="96"
+			 thickness="1.0"
+			 z="30.0"
+			 title=""
+		>
+			<t2_patch
+				oid="98"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:180 RGB_kept_stack 31"
+				links="95,101"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=31"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="99"
+			 thickness="1.0"
+			 z="31.0"
+			 title=""
+		>
+			<t2_patch
+				oid="101"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:181 RGB_kept_stack 32"
+				links="98,104"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=32"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="102"
+			 thickness="1.0"
+			 z="32.0"
+			 title=""
+		>
+			<t2_patch
+				oid="104"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:182 RGB_kept_stack 33"
+				links="101,107"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=33"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="105"
+			 thickness="1.0"
+			 z="33.0"
+			 title=""
+		>
+			<t2_patch
+				oid="107"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:183 RGB_kept_stack 34"
+				links="104,110"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=34"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="108"
+			 thickness="1.0"
+			 z="34.0"
+			 title=""
+		>
+			<t2_patch
+				oid="110"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:184 RGB_kept_stack 35"
+				links="107,113"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=35"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="111"
+			 thickness="1.0"
+			 z="35.0"
+			 title=""
+		>
+			<t2_patch
+				oid="113"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:185 RGB_kept_stack 36"
+				links="110,116"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=36"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="114"
+			 thickness="1.0"
+			 z="36.0"
+			 title=""
+		>
+			<t2_patch
+				oid="116"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:186 RGB_kept_stack 37"
+				links="113,119"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=37"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="117"
+			 thickness="1.0"
+			 z="37.0"
+			 title=""
+		>
+			<t2_patch
+				oid="119"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:187 RGB_kept_stack 38"
+				links="116,122"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=38"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="120"
+			 thickness="1.0"
+			 z="38.0"
+			 title=""
+		>
+			<t2_patch
+				oid="122"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:188 RGB_kept_stack 39"
+				links="119,125"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=39"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="123"
+			 thickness="1.0"
+			 z="39.0"
+			 title=""
+		>
+			<t2_patch
+				oid="125"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:189 RGB_kept_stack 40"
+				links="122,128"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=40"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="126"
+			 thickness="1.0"
+			 z="40.0"
+			 title=""
+		>
+			<t2_patch
+				oid="128"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:190 RGB_kept_stack 41"
+				links="125,131"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=41"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="129"
+			 thickness="1.0"
+			 z="41.0"
+			 title=""
+		>
+			<t2_patch
+				oid="131"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:191 RGB_kept_stack 42"
+				links="128,134"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=42"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="132"
+			 thickness="1.0"
+			 z="42.0"
+			 title=""
+		>
+			<t2_patch
+				oid="134"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:192 RGB_kept_stack 43"
+				links="131,137"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=43"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="135"
+			 thickness="1.0"
+			 z="43.0"
+			 title=""
+		>
+			<t2_patch
+				oid="137"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:193 RGB_kept_stack 44"
+				links="134,140"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=44"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="138"
+			 thickness="1.0"
+			 z="44.0"
+			 title=""
+		>
+			<t2_patch
+				oid="140"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:194 RGB_kept_stack 45"
+				links="137,143"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=45"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="141"
+			 thickness="1.0"
+			 z="45.0"
+			 title=""
+		>
+			<t2_patch
+				oid="143"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:195 RGB_kept_stack 46"
+				links="140,146"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=46"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="144"
+			 thickness="1.0"
+			 z="46.0"
+			 title=""
+		>
+			<t2_patch
+				oid="146"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:196 RGB_kept_stack 47"
+				links="143,149"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=47"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="147"
+			 thickness="1.0"
+			 z="47.0"
+			 title=""
+		>
+			<t2_patch
+				oid="149"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:197 RGB_kept_stack 48"
+				links="146,152"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=48"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="150"
+			 thickness="1.0"
+			 z="48.0"
+			 title=""
+		>
+			<t2_patch
+				oid="152"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:198 RGB_kept_stack 49"
+				links="149,155"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=49"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="153"
+			 thickness="1.0"
+			 z="49.0"
+			 title=""
+		>
+			<t2_patch
+				oid="155"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:199 RGB_kept_stack 50"
+				links="152,158"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=50"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="156"
+			 thickness="1.0"
+			 z="50.0"
+			 title=""
+		>
+			<t2_patch
+				oid="158"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:200 RGB_kept_stack 51"
+				links="155,161"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=51"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="159"
+			 thickness="1.0"
+			 z="51.0"
+			 title=""
+		>
+			<t2_patch
+				oid="161"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:201 RGB_kept_stack 52"
+				links="158,164"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=52"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="162"
+			 thickness="1.0"
+			 z="52.0"
+			 title=""
+		>
+			<t2_patch
+				oid="164"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:202 RGB_kept_stack 53"
+				links="161,167"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=53"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="165"
+			 thickness="1.0"
+			 z="53.0"
+			 title=""
+		>
+			<t2_patch
+				oid="167"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:203 RGB_kept_stack 54"
+				links="164,170"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=54"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="168"
+			 thickness="1.0"
+			 z="54.0"
+			 title=""
+		>
+			<t2_patch
+				oid="170"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:204 RGB_kept_stack 55"
+				links="167,173"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=55"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="171"
+			 thickness="1.0"
+			 z="55.0"
+			 title=""
+		>
+			<t2_patch
+				oid="173"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:205 RGB_kept_stack 56"
+				links="170,176"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=56"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="174"
+			 thickness="1.0"
+			 z="56.0"
+			 title=""
+		>
+			<t2_patch
+				oid="176"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:206 RGB_kept_stack 57"
+				links="173,179"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=57"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="177"
+			 thickness="1.0"
+			 z="57.0"
+			 title=""
+		>
+			<t2_patch
+				oid="179"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:207 RGB_kept_stack 58"
+				links="176,182"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=58"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="180"
+			 thickness="1.0"
+			 z="58.0"
+			 title=""
+		>
+			<t2_patch
+				oid="182"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:208 RGB_kept_stack 59"
+				links="179,185"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=59"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="183"
+			 thickness="1.0"
+			 z="59.0"
+			 title=""
+		>
+			<t2_patch
+				oid="185"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:209 RGB_kept_stack 60"
+				links="182,188"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=60"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="186"
+			 thickness="1.0"
+			 z="60.0"
+			 title=""
+		>
+			<t2_patch
+				oid="188"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:210 RGB_kept_stack 61"
+				links="185,191"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=61"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="189"
+			 thickness="1.0"
+			 z="61.0"
+			 title=""
+		>
+			<t2_patch
+				oid="191"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:211 RGB_kept_stack 62"
+				links="188,194"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=62"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="192"
+			 thickness="1.0"
+			 z="62.0"
+			 title=""
+		>
+			<t2_patch
+				oid="194"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:212 RGB_kept_stack 63"
+				links="191,197"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=63"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="195"
+			 thickness="1.0"
+			 z="63.0"
+			 title=""
+		>
+			<t2_patch
+				oid="197"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:213 RGB_kept_stack 64"
+				links="194,200"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=64"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="198"
+			 thickness="1.0"
+			 z="64.0"
+			 title=""
+		>
+			<t2_patch
+				oid="200"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:214 RGB_kept_stack 65"
+				links="197,203"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=65"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="201"
+			 thickness="1.0"
+			 z="65.0"
+			 title=""
+		>
+			<t2_patch
+				oid="203"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:215 RGB_kept_stack 66"
+				links="200,206"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=66"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="204"
+			 thickness="1.0"
+			 z="66.0"
+			 title=""
+		>
+			<t2_patch
+				oid="206"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:216 RGB_kept_stack 67"
+				links="203,209"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=67"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="207"
+			 thickness="1.0"
+			 z="67.0"
+			 title=""
+		>
+			<t2_patch
+				oid="209"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:217 RGB_kept_stack 68"
+				links="206,212"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=68"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="210"
+			 thickness="1.0"
+			 z="68.0"
+			 title=""
+		>
+			<t2_patch
+				oid="212"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:218 RGB_kept_stack 69"
+				links="209,215"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=69"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="213"
+			 thickness="1.0"
+			 z="69.0"
+			 title=""
+		>
+			<t2_patch
+				oid="215"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:219 RGB_kept_stack 70"
+				links="212,218"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=70"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="216"
+			 thickness="1.0"
+			 z="70.0"
+			 title=""
+		>
+			<t2_patch
+				oid="218"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:220 RGB_kept_stack 71"
+				links="215,221"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=71"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="219"
+			 thickness="1.0"
+			 z="71.0"
+			 title=""
+		>
+			<t2_patch
+				oid="221"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:221 RGB_kept_stack 72"
+				links="218,224"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=72"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="222"
+			 thickness="1.0"
+			 z="72.0"
+			 title=""
+		>
+			<t2_patch
+				oid="224"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:222 RGB_kept_stack 73"
+				links="221,227"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=73"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="225"
+			 thickness="1.0"
+			 z="73.0"
+			 title=""
+		>
+			<t2_patch
+				oid="227"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:223 RGB_kept_stack 74"
+				links="224,230"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=74"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="228"
+			 thickness="1.0"
+			 z="74.0"
+			 title=""
+		>
+			<t2_patch
+				oid="230"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:224 RGB_kept_stack 75"
+				links="227,233"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=75"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="231"
+			 thickness="1.0"
+			 z="75.0"
+			 title=""
+		>
+			<t2_patch
+				oid="233"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:225 RGB_kept_stack 76"
+				links="230,236"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=76"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="234"
+			 thickness="1.0"
+			 z="76.0"
+			 title=""
+		>
+			<t2_patch
+				oid="236"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:226 RGB_kept_stack 77"
+				links="233,239"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=77"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="237"
+			 thickness="1.0"
+			 z="77.0"
+			 title=""
+		>
+			<t2_patch
+				oid="239"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:227 RGB_kept_stack 78"
+				links="236,242"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=78"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="240"
+			 thickness="1.0"
+			 z="78.0"
+			 title=""
+		>
+			<t2_patch
+				oid="242"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:228 RGB_kept_stack 79"
+				links="239,245"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=79"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="243"
+			 thickness="1.0"
+			 z="79.0"
+			 title=""
+		>
+			<t2_patch
+				oid="245"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:229 RGB_kept_stack 80"
+				links="242,248"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=80"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="246"
+			 thickness="1.0"
+			 z="80.0"
+			 title=""
+		>
+			<t2_patch
+				oid="248"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:230 RGB_kept_stack 81"
+				links="245,251"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=81"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="249"
+			 thickness="1.0"
+			 z="81.0"
+			 title=""
+		>
+			<t2_patch
+				oid="251"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:231 RGB_kept_stack 82"
+				links="248,254"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=82"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="252"
+			 thickness="1.0"
+			 z="82.0"
+			 title=""
+		>
+			<t2_patch
+				oid="254"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:232 RGB_kept_stack 83"
+				links="251,257"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=83"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="255"
+			 thickness="1.0"
+			 z="83.0"
+			 title=""
+		>
+			<t2_patch
+				oid="257"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:233 RGB_kept_stack 84"
+				links="254,260"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=84"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="258"
+			 thickness="1.0"
+			 z="84.0"
+			 title=""
+		>
+			<t2_patch
+				oid="260"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:234 RGB_kept_stack 85"
+				links="257,263"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=85"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="261"
+			 thickness="1.0"
+			 z="85.0"
+			 title=""
+		>
+			<t2_patch
+				oid="263"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:235 RGB_kept_stack 86"
+				links="260,266"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=86"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="264"
+			 thickness="1.0"
+			 z="86.0"
+			 title=""
+		>
+			<t2_patch
+				oid="266"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:236 RGB_kept_stack 87"
+				links="263,269"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=87"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="267"
+			 thickness="1.0"
+			 z="87.0"
+			 title=""
+		>
+			<t2_patch
+				oid="269"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:237 RGB_kept_stack 88"
+				links="266,272"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=88"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="270"
+			 thickness="1.0"
+			 z="88.0"
+			 title=""
+		>
+			<t2_patch
+				oid="272"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:238 RGB_kept_stack 89"
+				links="269,275"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=89"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="273"
+			 thickness="1.0"
+			 z="89.0"
+			 title=""
+		>
+			<t2_patch
+				oid="275"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:239 RGB_kept_stack 90"
+				links="272,278"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=90"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="276"
+			 thickness="1.0"
+			 z="90.0"
+			 title=""
+		>
+			<t2_patch
+				oid="278"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:240 RGB_kept_stack 91"
+				links="275,281"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=91"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="279"
+			 thickness="1.0"
+			 z="91.0"
+			 title=""
+		>
+			<t2_patch
+				oid="281"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:241 RGB_kept_stack 92"
+				links="278,284"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=92"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="282"
+			 thickness="1.0"
+			 z="92.0"
+			 title=""
+		>
+			<t2_patch
+				oid="284"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:242 RGB_kept_stack 93"
+				links="281,287"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=93"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="285"
+			 thickness="1.0"
+			 z="93.0"
+			 title=""
+		>
+			<t2_patch
+				oid="287"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:243 RGB_kept_stack 94"
+				links="284,290"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=94"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="288"
+			 thickness="1.0"
+			 z="94.0"
+			 title=""
+		>
+			<t2_patch
+				oid="290"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:244 RGB_kept_stack 95"
+				links="287,293"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=95"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="291"
+			 thickness="1.0"
+			 z="95.0"
+			 title=""
+		>
+			<t2_patch
+				oid="293"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:245 RGB_kept_stack 96"
+				links="290,296"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=96"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="294"
+			 thickness="1.0"
+			 z="96.0"
+			 title=""
+		>
+			<t2_patch
+				oid="296"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:246 RGB_kept_stack 97"
+				links="293,299"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=97"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="297"
+			 thickness="1.0"
+			 z="97.0"
+			 title=""
+		>
+			<t2_patch
+				oid="299"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:247 RGB_kept_stack 98"
+				links="296,302"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=98"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="300"
+			 thickness="1.0"
+			 z="98.0"
+			 title=""
+		>
+			<t2_patch
+				oid="302"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:248 RGB_kept_stack 99"
+				links="299,305"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=99"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="303"
+			 thickness="1.0"
+			 z="99.0"
+			 title=""
+		>
+			<t2_patch
+				oid="305"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:249 RGB_kept_stack 100"
+				links="302,308"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=100"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="306"
+			 thickness="1.0"
+			 z="100.0"
+			 title=""
+		>
+			<t2_patch
+				oid="308"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:250 RGB_kept_stack 101"
+				links="305,311"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=101"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="309"
+			 thickness="1.0"
+			 z="101.0"
+			 title=""
+		>
+			<t2_patch
+				oid="311"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:251 RGB_kept_stack 102"
+				links="308,314"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=102"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="312"
+			 thickness="1.0"
+			 z="102.0"
+			 title=""
+		>
+			<t2_patch
+				oid="314"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:252 RGB_kept_stack 103"
+				links="311,317"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=103"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="315"
+			 thickness="1.0"
+			 z="103.0"
+			 title=""
+		>
+			<t2_patch
+				oid="317"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:253 RGB_kept_stack 104"
+				links="314,320"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=104"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="318"
+			 thickness="1.0"
+			 z="104.0"
+			 title=""
+		>
+			<t2_patch
+				oid="320"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:254 RGB_kept_stack 105"
+				links="317,323"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=105"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="321"
+			 thickness="1.0"
+			 z="105.0"
+			 title=""
+		>
+			<t2_patch
+				oid="323"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:255 RGB_kept_stack 106"
+				links="320,326"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=106"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="324"
+			 thickness="1.0"
+			 z="106.0"
+			 title=""
+		>
+			<t2_patch
+				oid="326"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:256 RGB_kept_stack 107"
+				links="323,329"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=107"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="327"
+			 thickness="1.0"
+			 z="107.0"
+			 title=""
+		>
+			<t2_patch
+				oid="329"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:257 RGB_kept_stack 108"
+				links="326,332"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=108"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="330"
+			 thickness="1.0"
+			 z="108.0"
+			 title=""
+		>
+			<t2_patch
+				oid="332"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:258 RGB_kept_stack 109"
+				links="329,335"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=109"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="333"
+			 thickness="1.0"
+			 z="109.0"
+			 title=""
+		>
+			<t2_patch
+				oid="335"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:259 RGB_kept_stack 110"
+				links="332,338"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=110"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="336"
+			 thickness="1.0"
+			 z="110.0"
+			 title=""
+		>
+			<t2_patch
+				oid="338"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:260 RGB_kept_stack 111"
+				links="335,341"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=111"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="339"
+			 thickness="1.0"
+			 z="111.0"
+			 title=""
+		>
+			<t2_patch
+				oid="341"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:261 RGB_kept_stack 112"
+				links="338,344"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=112"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="342"
+			 thickness="1.0"
+			 z="112.0"
+			 title=""
+		>
+			<t2_patch
+				oid="344"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:262 RGB_kept_stack 113"
+				links="341,347"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=113"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="345"
+			 thickness="1.0"
+			 z="113.0"
+			 title=""
+		>
+			<t2_patch
+				oid="347"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:263 RGB_kept_stack 114"
+				links="344,350"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=114"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="348"
+			 thickness="1.0"
+			 z="114.0"
+			 title=""
+		>
+			<t2_patch
+				oid="350"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:264 RGB_kept_stack 115"
+				links="347,353"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=115"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="351"
+			 thickness="1.0"
+			 z="115.0"
+			 title=""
+		>
+			<t2_patch
+				oid="353"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:265 RGB_kept_stack 116"
+				links="350,356"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=116"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="354"
+			 thickness="1.0"
+			 z="116.0"
+			 title=""
+		>
+			<t2_patch
+				oid="356"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:266 RGB_kept_stack 117"
+				links="353,359"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=117"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="357"
+			 thickness="1.0"
+			 z="117.0"
+			 title=""
+		>
+			<t2_patch
+				oid="359"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:267 RGB_kept_stack 118"
+				links="356,362"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=118"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="360"
+			 thickness="1.0"
+			 z="118.0"
+			 title=""
+		>
+			<t2_patch
+				oid="362"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:268 RGB_kept_stack 119"
+				links="359,365"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=119"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="363"
+			 thickness="1.0"
+			 z="119.0"
+			 title=""
+		>
+			<t2_patch
+				oid="365"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:269 RGB_kept_stack 120"
+				links="362,368"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=120"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="366"
+			 thickness="1.0"
+			 z="120.0"
+			 title=""
+		>
+			<t2_patch
+				oid="368"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:270 RGB_kept_stack 121"
+				links="365,371"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=121"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="369"
+			 thickness="1.0"
+			 z="121.0"
+			 title=""
+		>
+			<t2_patch
+				oid="371"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:271 RGB_kept_stack 122"
+				links="368,374"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=122"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="372"
+			 thickness="1.0"
+			 z="122.0"
+			 title=""
+		>
+			<t2_patch
+				oid="374"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:272 RGB_kept_stack 123"
+				links="371,377"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=123"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="375"
+			 thickness="1.0"
+			 z="123.0"
+			 title=""
+		>
+			<t2_patch
+				oid="377"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:273 RGB_kept_stack 124"
+				links="374,380"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=124"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="378"
+			 thickness="1.0"
+			 z="124.0"
+			 title=""
+		>
+			<t2_patch
+				oid="380"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:274 RGB_kept_stack 125"
+				links="377,383"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=125"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="381"
+			 thickness="1.0"
+			 z="125.0"
+			 title=""
+		>
+			<t2_patch
+				oid="383"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:275 RGB_kept_stack 126"
+				links="380,386"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=126"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="384"
+			 thickness="1.0"
+			 z="126.0"
+			 title=""
+		>
+			<t2_patch
+				oid="386"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:276 RGB_kept_stack 127"
+				links="383,389"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=127"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="387"
+			 thickness="1.0"
+			 z="127.0"
+			 title=""
+		>
+			<t2_patch
+				oid="389"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:277 RGB_kept_stack 128"
+				links="386,392"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=128"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="390"
+			 thickness="1.0"
+			 z="128.0"
+			 title=""
+		>
+			<t2_patch
+				oid="392"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:278 RGB_kept_stack 129"
+				links="389,395"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=129"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="393"
+			 thickness="1.0"
+			 z="129.0"
+			 title=""
+		>
+			<t2_patch
+				oid="395"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:279 RGB_kept_stack 130"
+				links="392,398"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=130"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="396"
+			 thickness="1.0"
+			 z="130.0"
+			 title=""
+		>
+			<t2_patch
+				oid="398"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:280 RGB_kept_stack 131"
+				links="395,401"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=131"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="399"
+			 thickness="1.0"
+			 z="131.0"
+			 title=""
+		>
+			<t2_patch
+				oid="401"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:281 RGB_kept_stack 132"
+				links="398,404"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=132"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="402"
+			 thickness="1.0"
+			 z="132.0"
+			 title=""
+		>
+			<t2_patch
+				oid="404"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:282 RGB_kept_stack 133"
+				links="401,407"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=133"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="405"
+			 thickness="1.0"
+			 z="133.0"
+			 title=""
+		>
+			<t2_patch
+				oid="407"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:283 RGB_kept_stack 134"
+				links="404,410"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=134"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="408"
+			 thickness="1.0"
+			 z="134.0"
+			 title=""
+		>
+			<t2_patch
+				oid="410"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:284 RGB_kept_stack 135"
+				links="407,413"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=135"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="411"
+			 thickness="1.0"
+			 z="135.0"
+			 title=""
+		>
+			<t2_patch
+				oid="413"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:285 RGB_kept_stack 136"
+				links="410,416"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=136"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="414"
+			 thickness="1.0"
+			 z="136.0"
+			 title=""
+		>
+			<t2_patch
+				oid="416"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:286 RGB_kept_stack 137"
+				links="413,419"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=137"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="417"
+			 thickness="1.0"
+			 z="137.0"
+			 title=""
+		>
+			<t2_patch
+				oid="419"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:287 RGB_kept_stack 138"
+				links="416,422"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=138"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="420"
+			 thickness="1.0"
+			 z="138.0"
+			 title=""
+		>
+			<t2_patch
+				oid="422"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:288 RGB_kept_stack 139"
+				links="419,425"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=139"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="423"
+			 thickness="1.0"
+			 z="139.0"
+			 title=""
+		>
+			<t2_patch
+				oid="425"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:289 RGB_kept_stack 140"
+				links="422,428"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=140"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="426"
+			 thickness="1.0"
+			 z="140.0"
+			 title=""
+		>
+			<t2_patch
+				oid="428"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:290 RGB_kept_stack 141"
+				links="425,431"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=141"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="429"
+			 thickness="1.0"
+			 z="141.0"
+			 title=""
+		>
+			<t2_patch
+				oid="431"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:291 RGB_kept_stack 142"
+				links="428,434"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=142"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="432"
+			 thickness="1.0"
+			 z="142.0"
+			 title=""
+		>
+			<t2_patch
+				oid="434"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:292 RGB_kept_stack 143"
+				links="431,437"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=143"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="435"
+			 thickness="1.0"
+			 z="143.0"
+			 title=""
+		>
+			<t2_patch
+				oid="437"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:293 RGB_kept_stack 144"
+				links="434,440"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=144"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="438"
+			 thickness="1.0"
+			 z="144.0"
+			 title=""
+		>
+			<t2_patch
+				oid="440"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:294 RGB_kept_stack 145"
+				links="437,443"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=145"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="441"
+			 thickness="1.0"
+			 z="145.0"
+			 title=""
+		>
+			<t2_patch
+				oid="443"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:295 RGB_kept_stack 146"
+				links="440,446"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=146"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="444"
+			 thickness="1.0"
+			 z="146.0"
+			 title=""
+		>
+			<t2_patch
+				oid="446"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:296 RGB_kept_stack 147"
+				links="443,449"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=147"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="447"
+			 thickness="1.0"
+			 z="147.0"
+			 title=""
+		>
+			<t2_patch
+				oid="449"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:297 RGB_kept_stack 148"
+				links="446,452"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=148"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="450"
+			 thickness="1.0"
+			 z="148.0"
+			 title=""
+		>
+			<t2_patch
+				oid="452"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:298 RGB_kept_stack 149"
+				links="449,455"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=149"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="453"
+			 thickness="1.0"
+			 z="149.0"
+			 title=""
+		>
+			<t2_patch
+				oid="455"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:299 RGB_kept_stack 150"
+				links="452,458"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=150"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+		<t2_layer oid="456"
+			 thickness="1.0"
+			 z="150.0"
+			 title=""
+		>
+			<t2_patch
+				oid="458"
+				width="438.0"
+				height="404.0"
+				transform="matrix(1.0,0.0,0.0,1.0,0.0,0.0)"
+				title="slice:300 RGB_kept_stack 151"
+				links="455"
+				type="4"
+				file_path="/home/fewtrem/RGB kept stack.tif-----#slice=151"
+				style="fill-opacity:1.0;stroke:#ffff00;"
+				o_width="438"
+				o_height="404"
+				min="0.0"
+				max="255.0"
+				mres="32"
+			>
+			</t2_patch>
+		</t2_layer>
+	</t2_layer_set>
+	<t2_display id="465"
+		layer_id="222"
+		c_alphas="-1"
+		c_alphas_state="-1"
+		x="547"
+		y="157"
+		magnification="1.0"
+		srcrect_x="0"
+		srcrect_y="0"
+		srcrect_width="438"
+		srcrect_height="404"
+		scroll_step="1"
+		filter_enabled="false"
+		filter_min_max_enabled="false"
+		filter_min="0"
+		filter_max="255"
+		filter_invert="false"
+		filter_clahe_enabled="false"
+		filter_clahe_block_size="127"
+		filter_clahe_histogram_bins="256"
+		filter_clahe_max_slope="3.0"
+	/>
+</trakem2>
